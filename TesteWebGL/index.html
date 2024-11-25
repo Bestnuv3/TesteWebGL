@@ -1,0 +1,21 @@
+<canvas id="tela" width="840" height="680"> </canvas>
+<script id="meu-vertex-shader" type="hlsl">
+    attribute vec4 posicao;
+    void main() {
+        // gl_Position é uma variável especial de um vertex shader
+        // responsável por definir sua posição
+        mat4 u_escala = mat4(480.0/840.0, 0 , 0, 0,
+                            0,            1,  0, 0,
+                            0,            0,  1, 0,
+                            0,            0,  0, 1);
+        gl_Position = u_escala * posicao;
+  }
+</script>
+<script id="meu-fragment-shader" type="hlsl">
+    precision mediump float;
+    void main() {
+      gl_FragColor = vec4(1, 0, 0.5, 1);
+    }
+</script>
+<script src="Render.js"> </script>
+<script src="script.js"> </script>
